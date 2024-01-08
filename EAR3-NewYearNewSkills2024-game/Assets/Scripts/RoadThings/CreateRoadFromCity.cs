@@ -6,7 +6,7 @@ public class CreateRoadFromCity : MonoBehaviour
 {
     public GameObject gameManager;
     bool mouseOver;
-    public GameObject currentRoadManager;
+    GameObject currentRoadManager;
 
     void OnMouseOver()
     {

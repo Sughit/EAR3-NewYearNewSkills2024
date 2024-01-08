@@ -35,7 +35,11 @@ public class RoadManager : MonoBehaviour
                     Debug.Log("Too expensive to build");
                     Destroy(this.gameObject);
                 }
-                else GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
+                else 
+                {
+                    GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
+                    GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
+                }
             }
             else if(canDestroy)
             {
