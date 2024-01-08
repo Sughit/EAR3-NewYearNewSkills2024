@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1780270231}
+  currentRoadManager: {fileID: 0}
 --- !u!1 &496745947
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1780270231}
+  currentRoadManager: {fileID: 0}
 --- !u!50 &496745949
 Rigidbody2D:
   serializedVersion: 4
@@ -618,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1780270231}
+  currentRoadManager: {fileID: 0}
 --- !u!1 &930602932
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1780270231}
+  currentRoadManager: {fileID: 0}
 --- !u!50 &930602934
 Rigidbody2D:
   serializedVersion: 4

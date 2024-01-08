@@ -6,7 +6,7 @@ public class CreateRoadFromCity : MonoBehaviour
 {
     public GameObject gameManager;
     bool mouseOver;
-    GameObject currentRoadManager;
+    public GameObject currentRoadManager;
 
     void OnMouseOver()
     {
@@ -24,15 +24,7 @@ public class CreateRoadFromCity : MonoBehaviour
         {
             if(mouseOver)
             {
-                gameManager.GetComponent<SpawnRoadManager>().canBuildRoad=true;
-                for(int i=0;i<gameManager.transform.childCount;i++)
-                {
-                    if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
-                    {
-                        currentRoadManager = gameManager.transform.GetChild(i).gameObject;
-                        gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().startPos = this.gameObject.transform.position;
-                    }
-                }
+                Invoke("SetStartPos", 0.1f);
             }
         }
 
@@ -40,7 +32,34 @@ public class CreateRoadFromCity : MonoBehaviour
         {
             if(mouseOver)
             {
-                currentRoadManager.GetComponent<RoadManager>().endPos = this.gameObject.transform.position;
+                SetEndPos();
+            }
+        }
+    }
+
+    void SetStartPos()
+    {
+        gameManager.GetComponent<SpawnRoadManager>().canBuildRoad=true;
+        for(int i=0;i<gameManager.transform.childCount;i++)
+        {
+            if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+            {
+                Debug.Log("Ar trebui sa mearg");
+                currentRoadManager = gameManager.transform.GetChild(i).gameObject;
+                gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().startPos = this.gameObject.transform.position;
+            }
+        }
+    }
+
+    void SetEndPos()
+    {
+        for(int i=0;i<gameManager.transform.childCount;i++)
+        {
+            if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+            {
+                Debug.Log("Ar trebui sa mearg");
+                currentRoadManager = gameManager.transform.GetChild(i).gameObject;
+                gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().endPos = this.gameObject.transform.position;
                 currentRoadManager.GetComponent<RoadManager>().finishRoad=true;
             }
         }
