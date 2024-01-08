@@ -10,6 +10,7 @@ public class RoadManager : MonoBehaviour
 
     public bool finishRoad;
     public bool isNew=true;
+    bool canDestroy=true;
 
     void Start()
     {
@@ -26,10 +27,18 @@ public class RoadManager : MonoBehaviour
                 lineRend.SetPosition(0, startPos);
                 lineRend.SetPosition(1, endPos);
                 isNew=false;
+                finishRoad=false;
+                canDestroy=false;
+                float distance = Vector3.Distance(startPos, endPos);
+                if(GameObject.Find("GameManager").GetComponent<MoneyScript>().CalculateRoadCost(distance) > MoneyScript.money) 
+                {
+                    Debug.Log("Too expensive to build");
+                    Destroy(this.gameObject);
+                }
+                else GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
             }
-            else if(!finishRoad)
+            else if(canDestroy)
             {
-                Debug.Log("distrus");
                 Destroy(this.gameObject);
             }
         }
