@@ -10,6 +10,7 @@ TagManager:
   - Oil
   - Rock
   - Sand
+  - Cursor
   layers:
   - Default
   - TransparentFX
