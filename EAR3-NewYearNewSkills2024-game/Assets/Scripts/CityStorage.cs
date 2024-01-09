@@ -5,19 +5,40 @@ using UnityEngine;
 public class CityStorage : MonoBehaviour
 {
     public List<string> resourcesList = new List<string>();
+    public float resourceRange = 2;
+    public LayerMask resourcesMask;
     public int wood;
     public int oil;
     public int rock;
     public int sand;
+
+    bool canAddResources=true;
+    public float timeToAddResource=2f;
 
     public void AddResource(string resource)
     {
         if(!resourcesList.Contains(resource)) resourcesList.Add(resource);
     }
 
+    void Start()
+    {
+        foreach(Collider2D other in Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), resourceRange, resourcesMask))
+        {
+            AddResource(other.gameObject.tag);
+        }
+    }
+
     void Update()
     {
-        Invoke("AddResourcesToCity", 1f);
+        if(resourcesList.Count > 0) 
+        {
+            if(canAddResources)
+            {
+                AddResourcesToCity();
+                canAddResources=false;
+                Invoke("ResetTimer", timeToAddResource);
+            }
+        }
     }
 
     void AddResourcesToCity()
@@ -26,16 +47,16 @@ public class CityStorage : MonoBehaviour
         {
             switch(resource)
             {
-                case "wood":
+                case "Wood":
                 wood++;
                 break;
-                case "oil":
+                case "Oil":
                 oil++;
                 break;
-                case "rock":
+                case "Rock":
                 rock++;
                 break;
-                case "sand":
+                case "Sand":
                 sand++;
                 break;
                 default:
@@ -43,5 +64,16 @@ public class CityStorage : MonoBehaviour
                 break;
             }
         }
+    }
+
+    void ResetTimer()
+    {
+        canAddResources=true;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, resourceRange);
     }
 }

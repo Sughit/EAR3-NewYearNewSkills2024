@@ -10,11 +10,13 @@ public class CreateRoadFromCity : MonoBehaviour
 
     void OnMouseOver()
     {
+        Debug.Log("Mouse over" + gameObject.name);
         mouseOver=true;
     }
 
     void OnMouseExit()
     {
+        Debug.Log("Mouse exit");
         mouseOver=false;
     }
 
@@ -24,7 +26,7 @@ public class CreateRoadFromCity : MonoBehaviour
         {
             if(mouseOver)
             {
-                Invoke("SetStartPos", 0.1f);
+                Invoke("SetStartPos", 0.001f);
             }
         }
 
@@ -44,7 +46,6 @@ public class CreateRoadFromCity : MonoBehaviour
         {
             if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
             {
-                Debug.Log("Ar trebui sa mearg");
                 currentRoadManager = gameManager.transform.GetChild(i).gameObject;
                 gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().startPos = this.gameObject.transform.position;
             }
@@ -57,7 +58,6 @@ public class CreateRoadFromCity : MonoBehaviour
         {
             if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
             {
-                Debug.Log("Ar trebui sa mearg");
                 currentRoadManager = gameManager.transform.GetChild(i).gameObject;
                 gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().endPos = this.gameObject.transform.position;
                 currentRoadManager.GetComponent<RoadManager>().finishRoad=true;
