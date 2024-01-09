@@ -20,11 +20,8 @@ public class visualScriptCIty : MonoBehaviour
                 mouseOn = true;
             }
 
-        if(Input.GetMouseButtonDown(1) && !visualScriptCIty.detailsOpen)
-        {
-            details.SetActive(true);
-            detailsOpen = true;
-        }
+        if(Input.GetMouseButtonDown(1))
+            StartCoroutine(Over());
     }
     void OnMouseExit()
     {
@@ -37,7 +34,13 @@ public class visualScriptCIty : MonoBehaviour
 
     public void Close()
     {
-        details.SetActive(false);
-        detailsOpen = false;
+        CloseCityCanvas.open = false;
+    }
+    IEnumerator Over()
+    {
+        CloseCityCanvas.open = false;
+        yield return new WaitForSeconds(0.01f);
+        CloseCityCanvas.open = true;
+        details.SetActive(true);
     }
 }

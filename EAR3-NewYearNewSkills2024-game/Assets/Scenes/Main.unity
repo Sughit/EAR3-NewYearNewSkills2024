@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2936950876862676634, guid: 1d687904b743e4f45a0ebaf497e97662, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7375927243115403296, guid: 1d687904b743e4f45a0ebaf497e97662, type: 3}
       propertyPath: m_Name
       value: city
