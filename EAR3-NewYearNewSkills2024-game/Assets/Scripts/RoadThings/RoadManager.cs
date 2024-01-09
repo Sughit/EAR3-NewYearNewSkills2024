@@ -43,6 +43,7 @@ public class RoadManager : MonoBehaviour
             }
             else if(canDestroy)
             {
+                Debug.Log("Distrus");
                 Destroy(this.gameObject);
             }
         }
