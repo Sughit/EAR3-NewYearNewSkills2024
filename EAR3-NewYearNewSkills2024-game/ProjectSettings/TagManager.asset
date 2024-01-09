@@ -6,6 +6,10 @@ TagManager:
   tags:
   - City
   - GetResources
+  - Wood
+  - Oil
+  - Rock
+  - Sand
   layers:
   - Default
   - TransparentFX
@@ -13,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Resource
   - 
   - 
   - 
