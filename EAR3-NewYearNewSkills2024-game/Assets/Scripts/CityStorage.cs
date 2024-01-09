@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CityStorage : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class CityStorage : MonoBehaviour
     public float timeToAddRock=2f;
     public float timeToAddSand=2f;
 
+    public Transform iconsParent;
+    public GameObject resourceIcon;
+    public Sprite[] sprites;
+
     public void AddResource(string resource)
     {
         if(!resourcesList.Contains(resource)) resourcesList.Add(resource);
@@ -47,15 +52,28 @@ public class CityStorage : MonoBehaviour
             {
                 case "Wood":
                 canAddWood=true;
+                GameObject resource = Instantiate(resourceIcon, iconsParent);
+                resource.GetComponentInChildren<Image>().sprite = sprites[0];
                 break;
+
                 case "Oil":
                 canAddOil=true;
+                resource = Instantiate(resourceIcon, iconsParent);
+                resource.GetComponentInChildren<Image>().sprite = sprites[1];
                 break;
+
                 case "Rock":
                 canAddRock=true;
+                resource = Instantiate(resourceIcon, iconsParent);
+                resource.GetComponentInChildren<Image>().sprite = sprites[2];
                 break;
+
                 case "Sand":
+                canAddSand=true;
+                resource = Instantiate(resourceIcon, iconsParent);
+                resource.GetComponentInChildren<Image>().sprite = sprites[3];
                 break;
+
                 default:
                 Debug.Log("Resource not found");
                 break;
