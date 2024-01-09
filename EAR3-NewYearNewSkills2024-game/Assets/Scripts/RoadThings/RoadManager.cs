@@ -12,6 +12,8 @@ public class RoadManager : MonoBehaviour
     public bool isNew=true;
     bool canDestroy=true;
 
+    public List<Vector3> pair = new List<Vector3>();
+
     void Start()
     {
         lineRend = GetComponent<LineRenderer>();
@@ -37,8 +39,15 @@ public class RoadManager : MonoBehaviour
                 }
                 else 
                 {
-                    GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
-                    GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
+                    pair.Add(startPos);
+                    pair.Add(endPos);
+                    if(!SeeIfCanBuildRoad()) Destroy(this.gameObject);
+                    else
+                    {
+                        GameObject.Find("GameManager").GetComponent<SpawnRoadManager>().roads.Add(this);
+                        GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
+                        GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
+                    }
                 }
             }
             else if(canDestroy)
@@ -47,5 +56,16 @@ public class RoadManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    //functie pt a vedea daca exista sau nu un drum care conecteaza deja cele doua orase
+    bool SeeIfCanBuildRoad()
+    {
+        List<RoadManager> roads = GameObject.Find("GameManager").GetComponent<SpawnRoadManager>().roads;
+        foreach(var road in roads)
+        {
+            if((road.pair[0] == pair[0] && road.pair[1] == pair[1]) || (road.pair[1] == pair[0] && road.pair[0] == pair[1])) return false;
+        }
+        return true;
     }
 }

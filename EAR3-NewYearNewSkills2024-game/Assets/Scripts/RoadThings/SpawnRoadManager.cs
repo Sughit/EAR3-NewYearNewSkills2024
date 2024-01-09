@@ -7,6 +7,8 @@ public class SpawnRoadManager : MonoBehaviour
     public GameObject roadManager;
     public bool canBuildRoad=true;
 
+    public List<RoadManager> roads = new List<RoadManager>();
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
