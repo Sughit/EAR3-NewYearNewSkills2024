@@ -13,7 +13,20 @@ public class CityStorage : MonoBehaviour
     public int sand;
 
     bool canAddResources=true;
-    public float timeToAddResource=2f;
+
+    [HideInInspector]
+    public bool canAddWood;
+    [HideInInspector]
+    public bool canAddOil;
+    [HideInInspector]
+    public bool canAddRock;
+    [HideInInspector]
+    public bool canAddSand;
+
+    public float timeToAddWood=2f;
+    public float timeToAddOil=2f;
+    public float timeToAddRock=2f;
+    public float timeToAddSand=2f;
 
     public void AddResource(string resource)
     {
@@ -22,9 +35,31 @@ public class CityStorage : MonoBehaviour
 
     void Start()
     {
+        SetResources();
+    }
+
+    public void SetResources()
+    {
         foreach(Collider2D other in Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), resourceRange, resourcesMask))
         {
             AddResource(other.gameObject.tag);
+            switch(other.gameObject.tag)
+            {
+                case "Wood":
+                canAddWood=true;
+                break;
+                case "Oil":
+                canAddOil=true;
+                break;
+                case "Rock":
+                canAddRock=true;
+                break;
+                case "Sand":
+                break;
+                default:
+                Debug.Log("Resource not found");
+                break;
+            }
         }
     }
 
@@ -34,41 +69,68 @@ public class CityStorage : MonoBehaviour
         {
             if(canAddResources)
             {
-                AddResourcesToCity();
-                canAddResources=false;
-                Invoke("ResetTimer", timeToAddResource);
+                if(canAddWood)
+                {
+                    AddWoodToCity();
+                    canAddWood=false;
+                    Invoke("ResetTimerWood", timeToAddWood);
+                }
+                if(canAddOil)
+                {
+                    AddOilToCity();
+                    canAddOil=false;
+                    Invoke("ResetTimerOil", timeToAddOil);
+                }
+                if(canAddRock)
+                {
+                    AddRockToCity();
+                    canAddRock=false;
+                    Invoke("ResetTimerRock", timeToAddRock);
+                }
+                if(canAddSand)
+                {
+                    AddSandToCity();
+                    canAddSand=false;
+                    Invoke("ResetTimerSand", timeToAddSand);
+                }
             }
         }
     }
 
-    void AddResourcesToCity()
+    //functii de adaugat resurse
+    void AddWoodToCity()
     {
-        foreach(var resource in resourcesList)
-        {
-            switch(resource)
-            {
-                case "Wood":
-                wood++;
-                break;
-                case "Oil":
-                oil++;
-                break;
-                case "Rock":
-                rock++;
-                break;
-                case "Sand":
-                sand++;
-                break;
-                default:
-                Debug.Log("This city doesn't have that resource or that resource doesn't exist");
-                break;
-            }
-        }
+        wood++;
+    }
+    void AddOilToCity()
+    {
+        oil++;
+    }
+    void AddRockToCity()
+    {
+        rock++;
+    }
+    void AddSandToCity()
+    {
+        sand++;
     }
 
-    void ResetTimer()
+    //functii de resetat timpul
+    void ResetTimerWood()
     {
-        canAddResources=true;
+        canAddWood=true;
+    }
+    void ResetTimerOil()
+    {
+        canAddOil=true;
+    }
+    void ResetTimerRock()
+    {
+        canAddRock=true;
+    }
+    void ResetTimerSand()
+    {
+        canAddSand=true;
     }
 
     void OnDrawGizmos()
@@ -76,4 +138,29 @@ public class CityStorage : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.gameObject.transform.position, resourceRange);
     }
+
+    //void AddResourcesToCity()
+    // {
+    //     foreach(var resource in resourcesList)
+    //     {
+    //         switch(resource)
+    //         {
+    //             case "Wood":
+    //             wood++;
+    //             break;
+    //             case "Oil":
+    //             oil++;
+    //             break;
+    //             case "Rock":
+    //             rock++;
+    //             break;
+    //             case "Sand":
+    //             sand++;
+    //             break;
+    //             default:
+    //             Debug.Log("This city doesn't have that resource or that resource doesn't exist");
+    //             break;
+    //         }
+    //     }
+    // }
 }
