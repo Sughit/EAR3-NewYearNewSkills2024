@@ -212,7 +212,6 @@ GameObject:
   - component: {fileID: 268285369}
   - component: {fileID: 268285368}
   - component: {fileID: 268285367}
-  - component: {fileID: 268285366}
   m_Layer: 6
   m_Name: wood
   m_TagString: Wood
@@ -220,19 +219,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &268285366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268285365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d118ba467e17ef41b4aca17c5cfd9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resource: wood
 --- !u!61 &268285367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -387,7 +373,6 @@ GameObject:
   - component: {fileID: 410977151}
   - component: {fileID: 410977150}
   - component: {fileID: 410977149}
-  - component: {fileID: 410977148}
   m_Layer: 6
   m_Name: oil
   m_TagString: Oil
@@ -395,19 +380,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &410977148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410977147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d118ba467e17ef41b4aca17c5cfd9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resource: oil
 --- !u!61 &410977149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1457,7 +1429,6 @@ GameObject:
   - component: {fileID: 1641754473}
   - component: {fileID: 1641754472}
   - component: {fileID: 1641754471}
-  - component: {fileID: 1641754470}
   m_Layer: 6
   m_Name: sand
   m_TagString: Sand
@@ -1465,19 +1436,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1641754470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641754469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d118ba467e17ef41b4aca17c5cfd9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resource: sand
 --- !u!61 &1641754471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1574,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadManager: {fileID: 2124643667468782320, guid: 14b0d0ea19f729c4fada0ea9c6661860, type: 3}
   canBuildRoad: 1
+  roads: []
 --- !u!4 &1780270233
 Transform:
   m_ObjectHideFlags: 0
@@ -1616,6 +1575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cityPos: []
+  cityGO: []
 --- !u!1 &1810950580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1587,6 @@ GameObject:
   - component: {fileID: 1810950584}
   - component: {fileID: 1810950583}
   - component: {fileID: 1810950582}
-  - component: {fileID: 1810950581}
   m_Layer: 6
   m_Name: rock
   m_TagString: Rock
@@ -1635,19 +1594,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1810950581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810950580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d118ba467e17ef41b4aca17c5cfd9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resource: rock
 --- !u!61 &1810950582
 BoxCollider2D:
   m_ObjectHideFlags: 0

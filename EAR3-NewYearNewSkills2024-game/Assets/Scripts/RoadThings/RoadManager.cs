@@ -47,6 +47,7 @@ public class RoadManager : MonoBehaviour
                         GameObject.Find("GameManager").GetComponent<SpawnRoadManager>().roads.Add(this);
                         GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
                         GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
+                        GetComponent<Resource>().ConnectTwoCities(startPos, endPos);
                     }
                 }
             }
