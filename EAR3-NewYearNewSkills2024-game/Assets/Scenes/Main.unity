@@ -793,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   city: {fileID: 7375927243115403296, guid: 1d687904b743e4f45a0ebaf497e97662, type: 3}
+  cityName: 
 --- !u!4 &988432003
 Transform:
   m_ObjectHideFlags: 0

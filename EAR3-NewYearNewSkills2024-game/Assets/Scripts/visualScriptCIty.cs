@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class visualScriptCIty : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class visualScriptCIty : MonoBehaviour
     Vector3 scaleChange;
     bool mouseOn;
     public static bool detailsOpen;
+    public Text cityName;
     void Start()
     {
         scaleChange = new Vector3 (0.1f, 0.1f, 0.1f);

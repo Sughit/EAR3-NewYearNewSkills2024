@@ -270,9 +270,10 @@ GameObject:
   - component: {fileID: 2766615629259829662}
   - component: {fileID: 2766615629259829660}
   - component: {fileID: 2766615629259829661}
+  - component: {fileID: 4547657618074229317}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,6 +337,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityPos: []
   cityGO: []
+--- !u!114 &4547657618074229317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766615629259829649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18f018bea55daa45be7f6e06a59c9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 8592538822770159379}
 --- !u!1 &2766615629621763425
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Countries/Dracoria.unity
     guid: 743b4e35d2a3b8e4d8c026e0d57c8864
+  - enabled: 1
+    path: Assets/Scenes/Countries/Helionia.unity
+    guid: 1dbe53d116195d34795448f4af95b329
+  - enabled: 1
+    path: Assets/Scenes/Countries/Lunaria.unity
+    guid: 9b6f5535951d84d438d3eb1972025c68
+  - enabled: 1
+    path: Assets/Scenes/Countries/Olymporia.unity
+    guid: c42e78bdc9790194eac9dae0ee7b42ea
   m_configObjects: {}

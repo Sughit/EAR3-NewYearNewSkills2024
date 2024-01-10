@@ -621,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GFX: {fileID: 1734997522}
   details: {fileID: 2936950876862676634}
+  cityName: {fileID: 1574760320729417481}
 --- !u!1 &7521891864836618990
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: City Name
+  m_Text: Ardelia
 --- !u!1 &9115187024283420023
 GameObject:
   m_ObjectHideFlags: 0

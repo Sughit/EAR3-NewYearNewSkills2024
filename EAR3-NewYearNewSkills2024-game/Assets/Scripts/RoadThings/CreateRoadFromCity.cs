@@ -8,6 +8,11 @@ public class CreateRoadFromCity : MonoBehaviour
     bool mouseOver;
     GameObject currentRoadManager;
 
+    void Start()
+    {
+        gameManager = GameObject.FindWithTag("GameManager");
+    }
+
     void OnMouseOver()
     {
         Debug.Log("Mouse over" + gameObject.name);
@@ -42,7 +47,7 @@ public class CreateRoadFromCity : MonoBehaviour
     void SetStartPos()
     {
         gameManager.GetComponent<SpawnRoadManager>().canBuildRoad=true;
-        for(int i=0;i<gameManager.transform.childCount;i++)
+        for(int i=1;i<gameManager.transform.childCount;i++)
         {
             if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
             {
@@ -54,7 +59,7 @@ public class CreateRoadFromCity : MonoBehaviour
 
     void SetEndPos()
     {
-        for(int i=0;i<gameManager.transform.childCount;i++)
+        for(int i=1;i<gameManager.transform.childCount;i++)
         {
             if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
             {
