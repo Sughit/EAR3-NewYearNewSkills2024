@@ -11,10 +11,9 @@ public class SpawnCity : MonoBehaviour
 
     void Awake()
     {
+        city.GetComponent<visualScriptCIty>().cityName.text = cityName;  
         Instantiate(city, new Vector3(this.transform.position.x + Random.Range(-range, range),this.transform.position.y + Random.Range(-range, range), 0), Quaternion.identity, this.gameObject.transform);
-        city.GetComponent<visualScriptCIty>().cityName.text = cityName;
     }
-
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

@@ -36,6 +36,7 @@ public class visualScriptCIty : MonoBehaviour
 
     public void Close()
     {
+        details.SetActive(false);
         CloseCityCanvas.open = false;
     }
     IEnumerator Over()
