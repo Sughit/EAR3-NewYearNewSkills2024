@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Countries/Aquilonia.unity
     guid: d14c9295436ff994e85f8dc4effc81da
   - enabled: 1
-    path: Assets/Scenes/Countries/Ardentia.unity
+    path: Assets/Scenes/Countries/Jovia.unity
     guid: 73d007953760f8347afd96b7ea41a91d
   - enabled: 1
     path: Assets/Scenes/Countries/Auradia.unity
@@ -30,12 +30,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Countries/Novadoria.unity
     guid: 131bdc34c60411743be92456e18e5daa
   - enabled: 1
-    path: Assets/Scenes/Countries/Sylvestria.unity
+    path: Assets/Scenes/Countries/Nectaria.unity
     guid: e4617b79fda184f4487db35fbd9f28cd
   - enabled: 1
     path: Assets/Scenes/Countries/Valoria.unity
     guid: 416cfbef1d5a02c449f38d6cf2c5000b
   - enabled: 1
-    path: Assets/Scenes/Countries/Zephyria.unity
+    path: Assets/Scenes/Countries/Dracoria.unity
     guid: 743b4e35d2a3b8e4d8c026e0d57c8864
   m_configObjects: {}
