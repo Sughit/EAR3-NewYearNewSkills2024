@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoneyScript : MonoBehaviour
 {
-    public static int money = 100;
+    public static int money = 250;
     public Text moneyText;
     public int costPerKm;
     int currentRoads;
