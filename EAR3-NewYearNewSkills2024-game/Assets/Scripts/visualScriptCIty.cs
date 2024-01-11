@@ -36,6 +36,7 @@ public class visualScriptCIty : MonoBehaviour
 
     public void Close()
     {
+        Debug.Log("Trebuie inchis");
         details.SetActive(false);
         CloseCityCanvas.open = false;
     }
