@@ -24,7 +24,7 @@ public class RoadManager : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0))
         {
-            if(finishRoad)
+            if(finishRoad && startPos != endPos && startPos != Vector3.zero && endPos != Vector3.zero)
             {
                 lineRend.SetPosition(0, startPos);
                 lineRend.SetPosition(1, endPos);
