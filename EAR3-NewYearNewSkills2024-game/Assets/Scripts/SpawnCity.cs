@@ -12,7 +12,9 @@ public class SpawnCity : MonoBehaviour
     void Awake()
     {
         city.GetComponent<visualScriptCIty>().cityName.text = cityName;  
-        GameObject cityGO = Instantiate(city, new Vector3(this.transform.position.x + Random.Range(-range, range),this.transform.position.y + Random.Range(-range, range), 0), Quaternion.identity, this.gameObject.transform);
+        float random = Random.Range(-range, range);
+        if(random==0) random+=0.01f;
+        GameObject cityGO = Instantiate(city, new Vector3(this.transform.position.x + random,this.transform.position.y + random, 0), Quaternion.identity, this.gameObject.transform);
         GameObject.Find("GameManager").GetComponent<Country>().cities.Add(cityGO.GetComponent<CityStorage>());
     }
     void OnDrawGizmos()
