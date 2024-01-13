@@ -30,7 +30,7 @@ public class CreateRoadFromCity : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if(mouseOver)
+            if(mouseOver && gameManager.GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
             {
                 Invoke("SetStartPos", 0.001f);
                 GameObject roadBP = Instantiate(roadBluePrint, transform.position, Quaternion.identity);

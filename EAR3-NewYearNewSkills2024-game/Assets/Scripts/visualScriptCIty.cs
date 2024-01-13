@@ -16,13 +16,13 @@ public class visualScriptCIty : MonoBehaviour
     }
     void OnMouseOver()
     {
-        if(!mouseOn)
+        if(!mouseOn && GameObject.Find("GameManager").GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
             {
                 GFX.transform.localScale +=scaleChange;
                 mouseOn = true;
             }
 
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1) && GameObject.Find("GameManager").GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
             StartCoroutine(Over());
     }
     void OnMouseExit()
