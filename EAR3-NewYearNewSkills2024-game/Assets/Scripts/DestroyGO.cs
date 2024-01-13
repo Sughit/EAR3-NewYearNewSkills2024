@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class NEdistrugere : MonoBehaviour
+public class DestroyGO : MonoBehaviour
 {
     void Start()
     {
         DontDestroyOnLoad(this);
+        Destroy(gameObject, 2);
     }
 }

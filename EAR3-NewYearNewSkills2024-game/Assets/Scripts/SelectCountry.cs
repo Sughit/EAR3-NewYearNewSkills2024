@@ -8,6 +8,7 @@ public class SelectCountry : MonoBehaviour
 {
     public string countryName;
     public Text nameText;
+    public GameObject sunetGO;
 
     void Awake()
     {
@@ -17,5 +18,10 @@ public class SelectCountry : MonoBehaviour
     public void ChooseCountry()
     {
         SceneManager.LoadScene(countryName);
+    }
+
+    public void Sunet()
+    {
+        Instantiate(sunetGO);
     }
 }

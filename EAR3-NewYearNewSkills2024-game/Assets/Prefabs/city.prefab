@@ -5490,6 +5490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   roadBluePrint: {fileID: 4595180420904668029, guid: 8550b1363fe74c04d8c61bb6a6865292, type: 3}
+  sunetGO: {fileID: 2348986355969415473, guid: ef68e7af980a5b041b73aa8ee7d05633, type: 3}
 --- !u!114 &7375927243115403326
 MonoBehaviour:
   m_ObjectHideFlags: 0

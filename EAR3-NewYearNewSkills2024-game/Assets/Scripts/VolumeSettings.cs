@@ -9,6 +9,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField]private AudioMixer myMixer;
     [SerializeField]private Slider musicSlider;
     [SerializeField]private Slider SFXSlider;
+    public GameObject musicGO;
 
     private void Start()
     {
@@ -44,5 +45,13 @@ public class VolumeSettings : MonoBehaviour
 
         SetMusicVolume();
         SetSFXVolume();
+    }
+    public void Awake()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
+        if (objs.Length <1)
+        {
+            Instantiate(musicGO);
+        }
     }
 }

@@ -8,7 +8,7 @@ public class CreateRoadFromCity : MonoBehaviour
     public GameObject gameManager;
     bool mouseOver;
     GameObject currentRoadManager;
-    public GameObject roadBluePrint;
+    public GameObject roadBluePrint, sunetGO;
 
     void Start()
     {
@@ -53,6 +53,7 @@ public class CreateRoadFromCity : MonoBehaviour
             if(mouseOver)
             {
                 SetEndPos();
+                Instantiate(sunetGO);
             }
         }
     }

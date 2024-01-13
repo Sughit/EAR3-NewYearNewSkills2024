@@ -12,6 +12,7 @@ TagManager:
   - Sand
   - Cursor
   - GameManager
+  - Music
   layers:
   - Default
   - TransparentFX

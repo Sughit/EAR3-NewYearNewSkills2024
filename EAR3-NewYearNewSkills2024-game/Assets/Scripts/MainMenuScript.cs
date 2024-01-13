@@ -7,6 +7,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public GameObject main, settings;
     public GameObject inGameMenu;
+    public GameObject sunetGO;
 
     void InGameMenu()
     {   
@@ -44,5 +45,10 @@ public class MainMenuScript : MonoBehaviour
     public void ToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void Sunet()
+    {
+        Instantiate(sunetGO);
     }
 }

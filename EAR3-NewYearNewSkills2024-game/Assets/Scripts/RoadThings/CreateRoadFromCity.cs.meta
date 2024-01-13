@@ -3,7 +3,10 @@ guid: 448f5bc8104bbea46af73e03c29fb10a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameManager: {instanceID: 0}
+  - roadBluePrint: {instanceID: 0}
+  - sunetGO: {fileID: 2348986355969415473, guid: ef68e7af980a5b041b73aa8ee7d05633, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
