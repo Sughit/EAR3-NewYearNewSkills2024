@@ -29,6 +29,8 @@ public class CityStorage : MonoBehaviour
     // public float timeToAddRock=2f;
     // public float timeToAddSand=2f;
 
+    public GameObject particles;
+
     public Transform iconsParent;
     public GameObject resourceIcon;
     public Sprite[] sprites;
@@ -79,6 +81,12 @@ public class CityStorage : MonoBehaviour
                 break;
             }
         }
+    }
+
+    void Update()
+    {
+        if(resourcesList.Count == 4)
+            particles.SetActive(true);
     }
 
     // void Update()

@@ -7,6 +7,7 @@ public class CreateRoadFromCity : MonoBehaviour
     public GameObject gameManager;
     bool mouseOver;
     GameObject currentRoadManager;
+    public GameObject roadBluePrint;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class CreateRoadFromCity : MonoBehaviour
             if(mouseOver)
             {
                 Invoke("SetStartPos", 0.001f);
+                GameObject roadBP = Instantiate(roadBluePrint, transform.position, Quaternion.identity);
+                roadBP.GetComponent<LineRenderer>().SetPosition(0, this.transform.position);
             }
         }
 
@@ -47,7 +50,7 @@ public class CreateRoadFromCity : MonoBehaviour
     void SetStartPos()
     {
         gameManager.GetComponent<SpawnRoadManager>().canBuildRoad=true;
-        for(int i=1;i<gameManager.transform.childCount;i++)
+        for(int i=3;i<gameManager.transform.childCount;i++)
         {
             if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
             {
@@ -59,7 +62,7 @@ public class CreateRoadFromCity : MonoBehaviour
 
     void SetEndPos()
     {
-        for(int i=1;i<gameManager.transform.childCount;i++)
+        for(int i=3;i<gameManager.transform.childCount;i++)
         {
             if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
             {
