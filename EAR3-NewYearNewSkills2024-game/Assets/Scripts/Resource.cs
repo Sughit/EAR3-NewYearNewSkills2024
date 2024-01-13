@@ -15,13 +15,13 @@ public class Resource : MonoBehaviour
             if(city.transform.position == cityA) 
             {
                 cityAGO = city;
-                GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCityGO(cityAGO);
+                GameObject.FindWithTag("GameManager").GetComponent<CityManagement>().TryToAddCityGO(cityAGO);
                 if(cityBGO != null) break;
             }
             if(city.transform.position == cityB)
             {
                 cityBGO = city;
-                GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCityGO(cityBGO);
+                GameObject.FindWithTag("GameManager").GetComponent<CityManagement>().TryToAddCityGO(cityBGO);
                 if(cityAGO != null) break;
             }
         }

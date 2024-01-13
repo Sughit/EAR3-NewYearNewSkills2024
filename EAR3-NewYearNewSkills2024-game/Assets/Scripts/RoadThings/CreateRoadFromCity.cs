@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreateRoadFromCity : MonoBehaviour
 {
@@ -30,7 +31,16 @@ public class CreateRoadFromCity : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if(mouseOver && gameManager.GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
+            if(mouseOver && SceneManager.GetActiveScene().name != "Main Menu")
+            {
+                if(gameManager.GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
+                {
+                    Invoke("SetStartPos", 0.001f);
+                    GameObject roadBP = Instantiate(roadBluePrint, transform.position, Quaternion.identity);
+                    roadBP.GetComponent<LineRenderer>().SetPosition(0, this.transform.position);
+                }
+            }
+            else if(mouseOver)
             {
                 Invoke("SetStartPos", 0.001f);
                 GameObject roadBP = Instantiate(roadBluePrint, transform.position, Quaternion.identity);
@@ -50,25 +60,54 @@ public class CreateRoadFromCity : MonoBehaviour
     void SetStartPos()
     {
         gameManager.GetComponent<SpawnRoadManager>().canBuildRoad=true;
-        for(int i=3;i<gameManager.transform.childCount;i++)
+        if(SceneManager.GetActiveScene().name != "Main Menu")
         {
-            if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+            for(int i=3;i<gameManager.transform.childCount;i++)
             {
-                currentRoadManager = gameManager.transform.GetChild(i).gameObject;
-                gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().startPos = this.gameObject.transform.position;
+                if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+                {
+                    currentRoadManager = gameManager.transform.GetChild(i).gameObject;
+                    gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().startPos = this.gameObject.transform.position;
+                }
+            }
+        }
+        else
+        {
+            for(int i=0;i<gameManager.transform.childCount;i++)
+            {
+                if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+                {
+                    currentRoadManager = gameManager.transform.GetChild(i).gameObject;
+                    gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().startPos = this.gameObject.transform.position;
+                }
             }
         }
     }
 
     void SetEndPos()
     {
-        for(int i=3;i<gameManager.transform.childCount;i++)
+        if(SceneManager.GetActiveScene().name != "Main Menu")
         {
-            if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+            for(int i=3;i<gameManager.transform.childCount;i++)
             {
-                currentRoadManager = gameManager.transform.GetChild(i).gameObject;
-                gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().endPos = this.gameObject.transform.position;
-                currentRoadManager.GetComponent<RoadManager>().finishRoad=true;
+                if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+                {
+                    currentRoadManager = gameManager.transform.GetChild(i).gameObject;
+                    gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().endPos = this.gameObject.transform.position;
+                    currentRoadManager.GetComponent<RoadManager>().finishRoad=true;
+                }
+            }
+        }
+        else
+        {
+            for(int i=0;i<gameManager.transform.childCount;i++)
+            {
+                if(gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().isNew) 
+                {
+                    currentRoadManager = gameManager.transform.GetChild(i).gameObject;
+                    gameManager.transform.GetChild(i).gameObject.GetComponent<RoadManager>().endPos = this.gameObject.transform.position;
+                    currentRoadManager.GetComponent<RoadManager>().finishRoad=true;
+                }
             }
         }
     }

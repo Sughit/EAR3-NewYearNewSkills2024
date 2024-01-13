@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class visualScriptCIty : MonoBehaviour
 {
@@ -16,14 +17,31 @@ public class visualScriptCIty : MonoBehaviour
     }
     void OnMouseOver()
     {
-        if(!mouseOn && GameObject.Find("GameManager").GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
+        if(!mouseOn)
+        {
+            if(SceneManager.GetActiveScene().name != "Main Menu")
+            {
+                if(GameObject.FindWithTag("GameManager").GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
+                {
+                    GFX.transform.localScale +=scaleChange;
+                    mouseOn = true;
+                }
+            }
+            else
             {
                 GFX.transform.localScale +=scaleChange;
                 mouseOn = true;
             }
+        }
 
-        if(Input.GetMouseButtonDown(1) && GameObject.Find("GameManager").GetComponent<MainMenuScript>().inGameMenu.activeSelf == false)
+        if(Input.GetMouseButtonDown(1) && SceneManager.GetActiveScene().name != "Main Menu")
+        {
+            if(GameObject.FindWithTag("GameManager").GetComponent<MainMenuScript>().inGameMenu.activeSelf == false) StartCoroutine(Over());
+        }
+        else if(Input.GetMouseButtonDown(1))
+        {
             StartCoroutine(Over());
+        }   
     }
     void OnMouseExit()
     {
@@ -45,6 +63,6 @@ public class visualScriptCIty : MonoBehaviour
         CloseCityCanvas.open = false;
         yield return new WaitForSeconds(0.01f);
         CloseCityCanvas.open = true;
-        details.SetActive(true);
+        if(details != null) details.SetActive(true);
     }
 }
