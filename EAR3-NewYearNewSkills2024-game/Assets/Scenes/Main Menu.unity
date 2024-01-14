@@ -7599,21 +7599,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 831799180}
     m_Modifications:
-    - target: {fileID: 7083325595604640480, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7083325595604640480, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 40139702118c0d148b470ff9b1cb0571, type: 3}
     - target: {fileID: 7083325596789321356, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
       propertyPath: m_Name
       value: SelectCountry
-      objectReference: {fileID: 0}
-    - target: {fileID: 7083325596789321356, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7083325596789321357, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
       propertyPath: m_Pivot.x
@@ -7625,7 +7613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083325596789321357, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7083325596789321357, guid: 2b96e35e855ed264bba4b4408284ff54, type: 3}
       propertyPath: m_AnchorMax.x

@@ -29,8 +29,8 @@ public class RoadManager : MonoBehaviour
             {
                 if(SceneManager.GetActiveScene().name != "Main Menu")
                 {
-                    lineRend.SetPosition(0, new Vector3(startPos.x, startPos.y, 0));
-                    lineRend.SetPosition(1, new Vector3(endPos.x, endPos.y, 0));
+                    lineRend.SetPosition(0, new Vector3(startPos.x, startPos.y, -0.1f));
+                    lineRend.SetPosition(1, new Vector3(endPos.x, endPos.y, -0.1f));
                 }
                 else
                 {
