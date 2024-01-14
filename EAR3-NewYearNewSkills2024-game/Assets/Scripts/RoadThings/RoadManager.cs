@@ -49,26 +49,28 @@ public class RoadManager : MonoBehaviour
                         Destroy(this.gameObject);
                     }
                 }
-                else 
-                {
+                
+                
                     pair.Add(startPos);
                     pair.Add(endPos);
                     if(!SeeIfCanBuildRoad()) Destroy(this.gameObject);
                     else if(SceneManager.GetActiveScene().name != "Main Menu")
                     {
-                        GameObject.Find("GameManager").GetComponent<SpawnRoadManager>().roads.Add(this);
-                        GameObject.Find("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
-                        GameObject.Find("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
+                        Debug.Log("Nu suntem in meniu");
+                        GameObject.FindWithTag("GameManager").GetComponent<SpawnRoadManager>().roads.Add(this);
+                        GameObject.FindWithTag("GameManager").GetComponent<MoneyScript>().UpdateMoney(distance);
+                        GameObject.FindWithTag("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
                         GetComponent<Resource>().ConnectTwoCities(startPos, endPos);
-                        GameObject.Find("GameManager").GetComponent<Country>().numRoad++;
+                        GameObject.FindWithTag("GameManager").GetComponent<Country>().numRoad++;
                     }
-                    else
+                    else if(SceneManager.GetActiveScene().name == "Main Menu")
                     {
+                        Debug.Log("Suntem in meniu");
                         GameObject.FindWithTag("GameManager").GetComponent<SpawnRoadManager>().roads.Add(this);
                         GameObject.FindWithTag("GameManager").GetComponent<CityManagement>().TryToAddCity(startPos, endPos);
                         GetComponent<Resource>().ConnectTwoCities(startPos, endPos);
                     }
-                }
+            
             }
             else if(canDestroy)
             {
